@@ -7,6 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
+     <!-- Header -->
+     <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a4 4 0 00-8 0v2m8 0a4 4 0 01-8 0m8 0v6a4 4 0 01-8 0V9m8 0H7" />
+                </svg>
+                Sales Management
+            </h1>
+        </div>
+    </header>
     <div class="min-h-screen flex flex-col justify-between">
         <main>
             <div class="container mx-auto px-4 py-8">
@@ -65,12 +76,12 @@
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white p-4">
-            <div class="container mx-auto text-center">
-                <p>&copy; 2025 Sales Management. All rights reserved.</p>
-            </div>
-        </footer>
+               <!-- Footer -->
+    <footer class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Sales Management. All rights reserved.</p>
+        </div>
+    </footer>
     </div>
 </body>
 </html>

@@ -7,6 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-md">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a4 4 0 00-8 0v2m8 0a4 4 0 01-8 0m8 0v6a4 4 0 01-8 0V9m8 0H7" />
+                    </svg>
+                    Customer Management
+                </h1>
+            </div>
+        </header>
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto">
             <div class="bg-white rounded-lg shadow-lg p-8">
@@ -125,7 +136,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4 mt-8">
+    <footer class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Customer Management. All rights reserved.</p>
         </div>

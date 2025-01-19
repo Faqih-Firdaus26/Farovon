@@ -7,7 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<<<<<<< HEAD
 <h1> How to run project Laravel </h1>
 <p> Npm run dev </p>
 <p> php artisan migrate </p>
 <p> php artisan serve </p>
+=======
+>>>>>>> 5d27d1c08e2fdbc8aafd431c6c086f40d40ab7b8
