@@ -46,6 +46,31 @@
                               class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ old('address', $customer->address) }}</textarea>
                 </div>
 
+               <!-- Customer Location -->
+               <div class="mb-4">
+                <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                <select name="location" id="location" 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="Jakarta" {{ old('location', $customer->location) == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
+                    <option value="Bandung" {{ old('location', $customer->location) == 'Bandung' ? 'selected' : '' }}>Bandung</option>
+                    <option value="Surabaya" {{ old('location', $customer->location) == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
+                    <option value="Medan" {{ old('location', $customer->location) == 'Medan' ? 'selected' : '' }}>Medan</option>
+                    <option value="Makassar" {{ old('location', $customer->location) == 'Makassar' ? 'selected' : '' }}>Makassar</option>
+                </select>
+            </div>
+
+            <!-- Customer Category -->
+            <div class="mb-4">
+                <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                <select name="category" id="category" 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="Retail" {{ old('category', $customer->category) == 'Retail' ? 'selected' : '' }}>Retail</option>
+                    <option value="Corporate" {{ old('category', $customer->category) == 'Corporate' ? 'selected' : '' }}>Corporate</option>
+                    <option value="Individual" {{ old('category', $customer->category) == 'Individual' ? 'selected' : '' }}>Individual</option>
+                    <option value="Wholesale" {{ old('category', $customer->category) == 'Wholesale' ? 'selected' : '' }}>Wholesale</option>
+                </select>
+            </div>
+
                 <!-- Actions -->
                 <div class="flex justify-end">
                     <button type="submit" 

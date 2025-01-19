@@ -15,6 +15,7 @@
             <div class="mt-4 bg-white rounded-lg shadow p-6">
                 <form action="{{ route('customers.index') }}" method="GET" class="space-y-4">
                     <div class="flex gap-4">
+                        <!-- Search Field -->
                         <div class="flex-1">
                             <input type="text" 
                                    name="search" 
@@ -22,20 +23,32 @@
                                    value="{{ request('search') }}"
                                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
                         </div>
+
+                        <!-- Filter by Location -->
                         <div class="w-48">
                             <select name="location" 
                                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option value="{{ request('location') }}">All Locations</option>
-                                <!-- Add location options dynamically -->
+                                <option value="">All Locations</option>
+                                <option value="Jakarta" {{ request('location') == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
+                                <option value="Bandung" {{ request('location') == 'Bandung' ? 'selected' : '' }}>Bandung</option>
+                                <option value="Surabaya" {{ request('location') == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
+                                <option value="Medan" {{ request('location') == 'Medan' ? 'selected' : '' }}>Medan</option>
+                                <option value="Makassar" {{ request('location') == 'Makassar' ? 'selected' : '' }}>Makassar</option>
                             </select>
                         </div>
+
+                        <!-- Filter by Category -->
                         <div class="w-48">
                             <select name="category" 
                                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option value="{{ request('category') }}">All Categories</option>
-                                <!-- Add category options dynamically -->
+                                <option value="">All Categories</option>
+                                <option value="Retail" {{ request('category') == 'Retail' ? 'selected' : '' }}>Retail</option>
+                                <option value="Corporate" {{ request('category') == 'Corporate' ? 'selected' : '' }}>Corporate</option>
+                                <option value="Individual" {{ request('category') == 'Individual' ? 'selected' : '' }}>Individual</option>
+                                <option value="Wholesale" {{ request('category') == 'Wholesale' ? 'selected' : '' }}>Wholesale</option>
                             </select>
                         </div>
+
                         <button type="submit" 
                                 class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
                             Search
@@ -61,7 +74,7 @@
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categories</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
                     </thead>

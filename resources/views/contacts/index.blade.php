@@ -11,7 +11,7 @@
         <div class="max-w-4xl mx-auto bg-white rounded-lg shadow p-6">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-gray-900">Contact List</h1>
-                <a href="{{ route('contacts.create') }}" 
+                <a href="{{ route('customers.contacts.create', $customer) }}" 
                    class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                     Add Contact
                 </a>
