@@ -111,6 +111,7 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quantity</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total Price</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
@@ -120,10 +121,13 @@
                             @foreach ($customer->sales as $sale)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $sale->sale_date }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $sale->product }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $sale->quantity }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ number_format($sale->total_price, 2) }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <div class="flex space-x-2">
+                                        <a href="{{ route('sales.report', $sale) }}" 
+                                        class="text-blue-600 hover:text-blue-900">View</a>
                                         <a href="{{ route('sales.edit', $sale) }}" 
                                            class="text-green-600 hover:text-green-900">Edit</a>
                                         <form action="{{ route('sales.destroy', $sale) }}" 

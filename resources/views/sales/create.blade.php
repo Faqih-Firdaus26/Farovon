@@ -11,8 +11,9 @@
         <div class="max-w-4xl mx-auto bg-white rounded-lg shadow p-6">
             <h1 class="text-2xl font-bold text-gray-900 mb-6">Add New Sale</h1>
             
-            <form action="{{ route('sales.store') }}" method="POST">
+            <form action="{{ route('sales.store', $customer) }}" method="POST">
                 @csrf
+                <input type="hidden" name="customer_id" value="{{ $customer->id }}">
                 <div class="mb-4">
                     <label for="sale_date" class="block text-sm font-medium text-gray-700">Sale Date</label>
                     <input type="date" name="sale_date" id="sale_date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">

@@ -26,4 +26,6 @@ Route::resource('sales', SaleController::class)->except(['index', 'show', 'creat
 Route::get('customers/{customer}/contacts/create', [ContactController::class, 'create'])->name('customers.contacts.create');
 Route::post('customers/{customer}/contacts', [ContactController::class, 'store'])->name('contacts.store');
 Route::get('customers/{customer}/sales/create', [SaleController::class, 'create'])->name('customers.sales.create');
+Route::post('customers/{customer}/sales', [SaleController::class, 'store'])->name('sales.store');
 Route::get('sales/report', [SaleController::class, 'report'])->name('sales.report');
+Route::get('sales', [SaleController::class, 'index'])->name('sales.index');

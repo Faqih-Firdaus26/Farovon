@@ -15,6 +15,8 @@ class SaleController extends Controller
     public function index()
     {
         //
+        $sales = Sale::with('customer')->paginate(10); // Ambil data penjualan dengan relasi customer
+        return view('sales.index', compact('sales'));
     }
 
     /**
@@ -34,10 +36,14 @@ class SaleController extends Controller
         //
         $validated = $request->validate([
             'sale_date' => 'required|date',
+            'product' => 'required|string|max:255',
             'quantity' => 'required|integer|min:1',
             'total_price' => 'required|numeric|min:0',
         ]);
-        $customer->sales()->create($validated);
+        $validated['customer_id'] = $customer->id;
+
+        // $customer->sales()->create($validated);
+        Sale::create($validated);
         return redirect()->route('customers.show', $customer)
             ->with('success', 'Sale added successfully.');
     }
@@ -67,6 +73,7 @@ class SaleController extends Controller
         //
         $validated = $request->validate([
             'sale_date' => 'required|date',
+            'product' => 'required|string|max:255',
             'quantity' => 'required|integer|min:1',
             'total_price' => 'required|numeric|min:0',
         ]);
@@ -89,25 +96,28 @@ class SaleController extends Controller
     }
 
     public function report(Request $request)
-    {
-        $query = Sale::query()
-            ->with('customer');
+{
+    $query = Sale::query()->with('customer');
 
-        if ($request->has('start_date')) {
-            $query->where('sale_date', '>=', $request->input('start_date'));
-        }
-
-        if ($request->has('end_date')) {
-            $query->where('sale_date', '<=', $request->input('end_date'));
-        }
-
-        if ($request->has('customer_id')) {
-            $query->where('customer_id', $request->input('customer_id'));
-        }
-
-        $sales = $query->orderBy('sale_date', 'desc')->paginate(10);
-        $customers = Customer::all();
-
-        return view('sales.report', compact('sales', 'customers'));
+    // Filter berdasarkan tanggal mulai
+    if ($request->filled('start_date')) {
+        $query->where('sale_date', '>=', $request->input('start_date'));
     }
+
+    // Filter berdasarkan tanggal akhir
+    if ($request->filled('end_date')) {
+        $query->where('sale_date', '<=', $request->input('end_date'));
+    }
+
+    // Filter berdasarkan customer
+    if ($request->filled('customer_id')) {
+        $query->where('customer_id', $request->input('customer_id'));
+    }
+
+    $sales = $query->orderBy('sale_date', 'desc')->paginate(10);
+    $customers = Customer::all(); // Untuk dropdown filter customer
+
+    return view('sales.report', compact('sales', 'customers'));
+}
+
 }

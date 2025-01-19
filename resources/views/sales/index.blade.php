@@ -37,6 +37,8 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $sale->total_price }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <div class="flex space-x-2">
+                                    <a href="{{ route('sales.', $sale) }}" 
+                                    class="text-blue-600 hover:text-blue-900">View</a>
                                     <a href="{{ route('sales.edit', $sale) }}" 
                                        class="text-green-600 hover:text-green-900">Edit</a>
                                     <form action="{{ route('sales.destroy', $sale) }}" 
