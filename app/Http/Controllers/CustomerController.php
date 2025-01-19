@@ -60,12 +60,17 @@ class CustomerController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:customers,email',
-            'phone' => 'required|string|max:20',
+            'phone' => 'required|string|max:20|unique:customers,phone',
             'address' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'category' => 'required|string|max:255',
+        ], [
+            'email.unique' => 'The email has already been taken.',
+            'phone.unique' => 'The phone number has already been taken.',
         ]);
+
         Customer::create($validated);
+
         return redirect()->route('customers.index')->with('success', 'Customer created successfully');
     }
 
@@ -96,12 +101,17 @@ class CustomerController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:customers,email,' . $customer->id,
-            'phone' => 'required|string|max:20',
+            'phone' => 'required|string|max:20|unique:customers,phone,' . $customer->id,
             'address' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'category' => 'required|string|max:255',
+        ], [
+            'email.unique' => 'The email has already been taken.',
+            'phone.unique' => 'The phone number has already been taken.',
         ]);
+
         $customer->update($validated);
+
         return redirect()->route('customers.index')->with('success', 'Customer updated successfully');
     }
 

@@ -91,9 +91,9 @@
 
             <!-- Back Button -->
             <div class="mt-6">
-                <a href="{{ route('customers.show', $customer) }}" 
+                <a href="{{ route('customers.index', $customer) }}" 
                    class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-                    Back to Sales List
+                    Back to Customer List
                 </a>
             </div>
         </div>
